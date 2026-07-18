@@ -76,9 +76,9 @@
 			<language tag="en-GB">en-GB/en-GB.com_hwdlinks.sys.ini</language>
 		</languages>
 		<menu link="option=com_hwdlinks">COM_HWDLINKS</menu>
-        <submenu>
+        <!--<submenu>
             <menu link="option=com_hwdlinks&amp;view=links">COM_HWDLINKS_VIEW_DEFAULT_TITLE</menu>
-        </submenu>
+        </submenu>-->
 	</administration>
 
 </extension>
