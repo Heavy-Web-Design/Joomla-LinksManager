@@ -1,6 +1,6 @@
 <?php // phpcs:ignore PSR1.Files.SideEffects.FoundWithSymbols
 /**
- * @package     LinksManager.Administrator
+ * @package     HwdLinks.Administrator
  * @subpackage  com_hwdlinks
  *
  * @copyright   Copyright (C) 2005 - 2026 Open Source Matters, Inc. All rights reserved.

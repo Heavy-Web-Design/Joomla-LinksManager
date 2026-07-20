@@ -16,8 +16,8 @@ return new class implements ServiceProviderInterface
 {
     public function register(Container $container): void
     {
-        $container->registerServiceProvider(new MVCFactoryServiceProvider('\\HWD\\Component\\LinksManager'));
-        $container->registerServiceProvider(new ComponentDispatcherFactoryServiceProvider('\\HWD\\Component\\LinksManager'));
+        $container->registerServiceProvider(new MVCFactoryServiceProvider('\\HWD\\Component\\HwdLinks'));
+        $container->registerServiceProvider(new ComponentDispatcherFactoryServiceProvider('\\HWD\\Component\\HwdLinks'));
         $container->set(
             ComponentInterface::class,
             function (Container $container) {

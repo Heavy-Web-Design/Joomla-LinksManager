@@ -1,13 +1,13 @@
 <?php // phpcs:ignore PSR1.Files.SideEffects.FoundWithSymbols
 /**
- * @package     LinksManager.Site
+ * @package     HwdLinks.Site
  * @subpackage  com_hwdlinks
  *
  * @copyright   Copyright (C) 2005 - 2026 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace HWD\Component\LinksManager\Site\View\Links;
+namespace HWD\Component\HwdLinks\Site\View\Links;
 
 \defined('_JEXEC') or die;
 

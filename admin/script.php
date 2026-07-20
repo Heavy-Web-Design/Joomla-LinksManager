@@ -3,7 +3,7 @@
 \defined('_JEXEC') or die;
 
 /*
- * @package     LinksManager.Script
+ * @package     HwdLinks.Script
  * @subpackage  com_hwdlinks
  *
  * @copyright   Copyright (C) 2005 - 2026 Open Source Matters, Inc. All rights reserved.

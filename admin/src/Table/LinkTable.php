@@ -1,6 +1,6 @@
 <?php // phpcs:ignore PSR1.Files.SideEffects.FoundWithSymbols
 
-namespace HWD\Component\LinksManager\Administrator\Table;
+namespace HWD\Component\HwdLinks\Administrator\Table;
 
 \defined('_JEXEC') or die;
 

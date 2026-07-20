@@ -1,6 +1,6 @@
 <?php // phpcs:ignore PSR1.Files.SideEffects.FoundWithSymbols
 
-namespace HWD\Component\LinksManager\Site\Controller;
+namespace HWD\Component\HwdLinks\Site\Controller;
 
 \defined('_JEXEC') or die;
 

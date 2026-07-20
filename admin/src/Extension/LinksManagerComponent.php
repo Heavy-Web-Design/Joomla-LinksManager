@@ -1,5 +1,5 @@
 <?php
-namespace HWD\Component\LinksManager\Administrator\Extension;
+namespace HWD\Component\HwdLinks\Administrator\Extension;
 
 defined('_JEXEC') or die;
 
@@ -7,7 +7,7 @@ use Joomla\CMS\Extension\ComponentPHPBackend;
 use Joomla\CMS\MVC\Factory\MVCFactoryAwareInterface;
 use Joomla\CMS\MVC\Factory\MVCFactoryAwareTrait;
 
-class LinksManagerComponent extends ComponentPHPBackend implements MVCFactoryAwareInterface
+class HwdLinksComponent extends ComponentPHPBackend implements MVCFactoryAwareInterface
 {
     use MVCFactoryAwareTrait;
 

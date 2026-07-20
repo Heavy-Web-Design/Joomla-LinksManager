@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     LinksManager.Site
+ * @package     HwdLinks.Site
  * @subpackage  com_hwdlinks
  *
  * @copyright   Copyright (C) 2005 - 2026 Open Source Matters, Inc. All rights reserved.
@@ -13,7 +13,7 @@ use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\LayoutHelper;
 use Joomla\CMS\Router\Route;
-//use HWD\Component\LinksManager\Site\Helper\RouteHelper as LinksManagerHelperRoute;
+//use HWD\Component\HwdLinks\Site\Helper\RouteHelper as HwdLinksHelperRoute;
 
 //$listOrder = $this->escape($this->state->get('list.ordering'));
 //$listDirn  = $this->escape($this->state->get('list.direction'));

@@ -16,7 +16,7 @@
 
 	<element>com_hwdlinks</element>
 
-	<namespace path="src">HWD\Component\LinksManager</namespace>
+	<namespace path="src">HWD\Component\HwdLinks</namespace>
 
 	<!-- Runs on install/uninstall/update -->
 	<scriptfile>script.php</scriptfile>
