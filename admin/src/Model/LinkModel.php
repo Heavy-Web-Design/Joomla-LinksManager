@@ -1,0 +1,161 @@
+<?php // phpcs:ignore PSR1.Files.SideEffects.FoundWithSymbols
+/**
+ * @package     LinksManager.Administrator
+ * @subpackage  com_hwdlinks
+ *
+ * @copyright   Copyright (C) 2005 - 2026 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
+namespace HWD\Component\LinksManager\Administrator\Model;
+
+\defined('_JEXEC') or die;
+
+use Joomla\Database\ParameterType;
+use Joomla\CMS\Factory;
+use Joomla\CMS\Form\Form;
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\MVC\Model\AdminModel;
+use Joomla\CMS\Table\Table;
+
+
+
+class LinkModel extends AdminModel
+{
+    /**
+     * Method to get a table object, load it if necessary.
+     *
+     * @param   string  $name     The table name. Optional.
+     * @param   string  $prefix   The class prefix. Optional.
+     * @param   array   $options  Configuration array for model. Optional.
+     *
+     * @return  Table  A Table object
+     *
+     * @since   3.0
+     * @throws  \Exception
+     */
+    public function getTable($name = '', $prefix = '', $options = array())
+    {
+        $name = 'hwdlinks';
+        $prefix = 'Table';
+
+        if ($table = $this->_createTable($name, $prefix, $options)) {
+            return $table;
+        }
+
+        throw new \Exception(Text::sprintf('JLIB_APPLICATION_ERROR_TABLE_NAME_NOT_SUPPORTED', $name), 0);
+    }
+
+    /**
+     * Method to get the record form.
+     *
+     * @param   array    $data      Data for the form.
+     * @param   boolean  $loadData  True if the form is to load its own data (default case), false if not.
+     *
+     * @return  Form|boolean  A Form object on success, false on failure
+     *
+     * @since   1.6
+     */
+    public function getForm($data = array(), $loadData = true)
+    {
+        // Get the form.
+        $form = $this->loadForm(
+            'com_hwdlinks.hwdlink',
+            'hwdlink',
+            [
+                'control' => 'jform',
+                'load_data' => $loadData
+            ]
+        );
+
+        if (empty($form)) {
+            return false;
+        }
+
+        return $form;
+    }
+
+
+    /**
+     * Method to get the data that should be injected in the form.
+     *
+     * @return  mixed  The data for the form.
+     *
+     * @since   1.6
+     */
+    protected function loadFormData()
+    {
+        // Check the session for previously entered form data.
+        $app = Factory::getApplication();
+        $data = $app->getUserState('com_hwdlinks.edit.hwdlink.data', array());
+
+        if (empty($data)) {
+            $data = $this->getItem();
+
+            // Pre-select some filters (Status, Category, Language, Access)
+            // in edit form if those have been selected in Article Manager: Articles
+        }
+
+        $this->preprocessData('com_hwdlinks.hwdlink', $data);
+
+        return $data;
+    }
+
+
+    /**
+     * Method to override the ModelAdmin save() function to handle Save as Copy correctly
+     *
+     * @param   The hwdlinks record data submitted from the form.
+     *
+     * @return  parent::save() return value
+     */
+    public function save($data)
+    {
+
+        $result = parent::save($data);
+
+        if ($result) {
+            $this->getTable()->rebuild(1);
+        }
+
+        return $result;
+    }
+
+
+    /**
+     * Prepare a link record for saving in the database
+     */
+    protected function prepareTable($table)
+    {
+        //Getting user info
+        $user = Factory::getUser();
+
+        // If is new item
+        $isNew = ($table->id == 0);
+
+        if ($isNew) {
+            if (empty($table->created)) {
+                $table->created = date('Y-m-d H:i:s');
+            }
+            $table->created_by = $user->id;
+        }
+    }
+
+
+    /**
+     * Save the record reordering after a record is dragged to a new position in the links view
+     */
+    public function saveorder($idArray = null, $lft_array = null)
+    {
+        // Get an instance of the table object.
+        $table = $this->getTable();
+
+        if (!$table->saveorder($idArray, $lft_array)) {
+            $this->setError($table->getError());
+
+            return false;
+        }
+
+        return true;
+    }
+}

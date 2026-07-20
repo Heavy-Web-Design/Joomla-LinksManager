@@ -58,23 +58,21 @@
 	</media>-->
 
 	<administration>
-		<!-- Administration Menu Section -->
-		<!--<menu link='index.php?option=com_hwdlinks'>COM_HWDLINKS_HWDLINKS</menu>-->
-		<!-- Administration Main File Copy Section -->
-		<!-- Note the folder attribute: This attribute describes the folder
-			to copy FROM in the package to install therefore files copied
-			in this section are copied from /admin/ in the package -->
 		<files folder="admin">
-			<!-- Admin Main File Copy Section -->
+			<folder>language</folder>
 			<folder>services</folder>
 			<folder>sql</folder>
 			<folder>src</folder>
+			<folder>tmpl</folder>
+			<file>access.xml</file>
+			<file>script.php</file>
 		</files>
 		<!-- Use this to root/administrator/language files -->
 		<languages folder="admin/language">
 			<language tag="en-GB">en-GB/en-GB.com_hwdlinks.ini</language>
 			<language tag="en-GB">en-GB/en-GB.com_hwdlinks.sys.ini</language>
 		</languages>
+		<!-- Administration Menu Section -->
 		<menu link="option=com_hwdlinks">COM_HWDLINKS</menu>
         <!--<submenu>
             <menu link="option=com_hwdlinks&amp;view=links">COM_HWDLINKS_VIEW_DEFAULT_TITLE</menu>
