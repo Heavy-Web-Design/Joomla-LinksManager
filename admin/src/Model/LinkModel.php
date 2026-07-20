@@ -36,7 +36,7 @@ class LinkModel extends AdminModel
      */
     public function getTable($name = '', $prefix = '', $options = array())
     {
-        $name = 'hwdlinks';
+        $name = 'Link';
         $prefix = 'Table';
 
         if ($table = $this->_createTable($name, $prefix, $options)) {
