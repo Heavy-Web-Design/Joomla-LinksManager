@@ -15,7 +15,7 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\LayoutHelper;
 use Joomla\CMS\Router\Route;
 
-HTMLHelper::_('formbehavior.chosen', 'select');
+//HTMLHelper::_('formbehavior.chosen', 'select');
 
 $state = $this->state ?? null;
 $listOrder = $state ? $state->get('list.ordering', '') : '';
