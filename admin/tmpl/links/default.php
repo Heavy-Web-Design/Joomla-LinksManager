@@ -34,7 +34,8 @@ if ($saveOrder) {
 
 ?>
 
-<form action="<?php echo Route::_('index.php?option=com_hwdlinks&view=links'); ?>" method="post" id="adminForm" name="adminForm">
+<form action="<?php echo Route::_('index.php?option=com_hwdlinks&view=links'); ?>" 
+    method="post" id="adminForm" name="adminForm">
     <div class="row">
         <div class="col-12">
             <?php echo Text::_('COM_HWDLINKS_LINKS_FILTER'); ?>
@@ -61,22 +62,9 @@ if ($saveOrder) {
             <th>
                 <?php echo Text::_('COM_HWDLINKS_LINKS_TYPE'); ?>
             </th>
-            <!--<th width="83%">-->
             <th class="text-center">
                 <?php echo HTMLHelper::_('searchtools.sort', 'COM_HWDLINKS_LINKS_TITLE', 'title', $listDirn, $listOrder); ?>
             </th>
-            <?php /*?><th width="5%">
-                <?php echo "lft"; ?>
-            </th>
-            <th width="5%">
-                <?php echo "rgt"; ?>
-            </th>
-            <th width="5%">
-                <?php echo "level"; ?>
-            </th>
-            <th width="5%">
-                <?php echo "parent"; ?>
-            </th><?php */ ?>
             <th class="text-center">
                 <?php echo HTMLHelper::_('searchtools.sort', 'COM_HWDLINKS_CREATED', 'created', $listDirn, $listOrder); ?>
             </th>
@@ -172,15 +160,6 @@ if ($saveOrder) {
                                 <?php echo $row->title; ?>
                             </a>
                         </td>
-                        <?php /*?><td align="center">
-                            <?php echo $row->lft; ?>
-                        </td>
-                        <td align="center">
-                            <?php echo $row->rgt; ?>
-                        </td>
-                        <td align="center">
-                        <?php echo $row->level; ?>
-                        </td><?php */ ?>
                         <td class="text-center"><?php echo $row->created; ?></td>
                         <td class="text-center"><?php echo $row->modified; ?></td>
                         <td class="text-center">

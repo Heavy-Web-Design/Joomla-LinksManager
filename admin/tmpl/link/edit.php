@@ -29,7 +29,15 @@ HTMLHelper::_('behavior.keepalive');
 
     <div class="main-card">
 
-        <?php echo HTMLHelper::_('uitab.startTabSet', 'myTab', ['active' => 'general', 'recall' => true, 'breakpoint' => 768]); ?>
+        <?php echo HTMLHelper::_(
+            'uitab.startTabSet',
+            'myTab',
+            [
+                'active' => 'general',
+                'recall' => true,
+                'breakpoint' => 768
+            ]
+        ); ?>
 
         <?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'general', Text::_('COM_HWDLINKS_LINK_CONTENT')); ?>
         <div class="row">
@@ -56,7 +64,6 @@ HTMLHelper::_('behavior.keepalive');
 
     </div>
 
-    <!--<input type="hidden" name="task" value="link.edit" />-->
     <input type="hidden" name="task" value="">
     <?php echo HTMLHelper::_('form.token'); ?>
 
