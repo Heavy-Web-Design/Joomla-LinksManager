@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<form>
+<form addfieldprefix="HWD\Component\HwdLinks\Administrator\Field">
 	<fields>
 		<field
             name="id"
@@ -111,7 +111,7 @@
 			type="list"
 			label="JSTATUS"
 			description="JFIELD_PUBLISHED_DESC"
-			class="form-select-color-state"
+			class="form-select form-select-color-state"
 			filter="intval"
 			size="1"
 			default="1"
@@ -125,7 +125,9 @@
 			label="COM_HWDLINKS_LINK_FIELD_PARENT_LABEL"
 			description="COM_HWDLINKS_LINK_FIELD_PARENT_DESC"
 			default="1"
-			filter="int">
+			filter="int"
+			addfieldprefix="HWD\Component\HwdLinks\Administrator\Field"
+		>
 		</field>
 		<!--<field
 			name="created"
@@ -153,7 +155,9 @@
 			label="JFIELD_ORDERING_LABEL"
 			description="JFIELD_ORDERING_DESC"
 			filter="int"
-			size="1">
+			size="1"
+			addfieldprefix="HWD\Component\HwdLinks\Administrator\Field"
+		>
 		</field>
 	</fieldset>
 

@@ -13,9 +13,6 @@ use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
 
-HTMLHelper::_('formbehavior.chosen', 'select');
-HTMLHelper::_('behavior.core');
-HTMLHelper::_('behavior.tabstate');
 HTMLHelper::_('behavior.formvalidator');
 HTMLHelper::_('behavior.keepalive');
 
@@ -24,48 +21,43 @@ HTMLHelper::_('behavior.keepalive');
 <form action="<?php echo Route::_('index.php?option=com_hwdlinks&layout=edit&id=' . (int) $this->item->id); ?>"
     method="post" name="adminForm" id="adminForm" class="form-validate">
 
-    <div class="d-flex flex-column gap-2">
-      <?php echo $this->form->renderField('title'); ?>
-      <hr />
-    </div>
-
-    <div class="form-horizontal">
-      <div class="row g-3">
+    <div class="row title-alias form-vertical mb-3">
         <div class="col-md-8">
-          <?php echo HTMLHelper::_('bootstrap.startTabSet', 'myTab', ['active' => 'general']); ?>
-
-          <?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'general', Text::_('COM_HWDLINKS_LINK_CONTENT')); ?>
-              <fieldset class="adminform">
-                  <div class="row">
-                      <div class="col-md-9">
-                        <?php echo $this->form->renderFieldset('content'); ?>
-                      </div>
-                  </div>
-              </fieldset>
-          <?php echo HTMLHelper::_('bootstrap.endTab'); ?>
-
-          <?php echo HTMLHelper::_('bootstrap.addTab', 'myTab', 'image', Text::_('COM_HWDLINKS_LINK_IMAGE')); ?>
-              <fieldset class="adminform">
-                  <div class="row">
-                      <div class="col-md-9">
-                        <?php echo $this->form->renderFieldset('image'); ?>
-                      </div>
-                  </div>
-              </fieldset>
-          <?php echo HTMLHelper::_('bootstrap.endTab'); ?>
-
-          <?php echo HTMLHelper::_('bootstrap.endTabSet'); ?>
+            <?php echo $this->form->renderField('title'); ?>
         </div>
-
-        <div class="col-md-4">
-          <fieldset class="form-vertical">
-            <?php echo $this->form->renderFieldset('publish'); ?>
-          </fieldset>
-        </div>
-      </div>
     </div>
 
-    <input type="hidden" name="task" value="link.edit" />
+    <div class="main-card">
+
+        <?php echo HTMLHelper::_('uitab.startTabSet', 'myTab', ['active' => 'general', 'recall' => true, 'breakpoint' => 768]); ?>
+
+        <?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'general', Text::_('COM_HWDLINKS_LINK_CONTENT')); ?>
+        <div class="row">
+            <div class="col-lg-9">
+                <fieldset class="adminform">
+                    <?php echo $this->form->renderFieldset('content'); ?>
+                </fieldset>
+            </div>
+            <div class="col-lg-3">
+                <?php echo $this->form->renderFieldset('publish'); ?>
+            </div>
+        </div>
+        <?php echo HTMLHelper::_('uitab.endTab'); ?>
+
+        <?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'image', Text::_('COM_HWDLINKS_LINK_IMAGE')); ?>
+            <div class="row">
+                <div class="col-md-9">
+                    <?php echo $this->form->renderFieldset('image'); ?>
+                </div>
+            </div>
+        <?php echo HTMLHelper::_('uitab.endTab'); ?>
+
+        <?php echo HTMLHelper::_('uitab.endTabSet'); ?>
+
+    </div>
+
+    <!--<input type="hidden" name="task" value="link.edit" />-->
+    <input type="hidden" name="task" value="">
     <?php echo HTMLHelper::_('form.token'); ?>
 
 </form>

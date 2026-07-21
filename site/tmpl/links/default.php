@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:ignore PSR1.Files.SideEffects.FoundWithSymbols
 /**
  * @package     HwdLinks.Site
  * @subpackage  com_hwdlinks
@@ -13,6 +13,7 @@ use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\LayoutHelper;
 use Joomla\CMS\Router\Route;
+use Joomla\CMS\Uri\Uri;
 //use HWD\Component\HwdLinks\Site\Helper\RouteHelper as HwdLinksHelperRoute;
 
 //$listOrder = $this->escape($this->state->get('list.ordering'));
@@ -24,8 +25,7 @@ use Joomla\CMS\Router\Route;
 
 <ul class="nav mod-list"<?php echo $id; ?>>
     <?php
-    foreach ($this->items as $i => &$item)
-    {
+    foreach ($this->items as $i => &$item) {
         $class = 'item-' . $item->id . ' level-' . $item->level;
 
         //Adding parent class for parents
@@ -48,7 +48,7 @@ use Joomla\CMS\Router\Route;
         // Creating links and titles
         switch ($item->type) :
             case 'document':
-                $url  = '<a class="item-link item-document" href="' . JURI::base() . $item->document . '" ' . $target . ' title="' . $item->title . '">' . $item->title . '</a>';
+                $url  = '<a class="item-link item-document" href="' . Uri::base() . $item->document . '" ' . $target . ' title="' . $item->title . '">' . $item->title . '</a>';
                 $icon = ' <i class="fa fa-file">&nbsp;</i> ';
                 break;
             case 'link':
@@ -73,19 +73,19 @@ use Joomla\CMS\Router\Route;
 
         // Setting date
         if ($item->modified !== '0000-00-00 00:00:00' && $item->modified !== null) {
-            $date = JHtml::date($item->modified, 'Y-m-d', false);
-            $date = ' - <small><b>' . JText::_('COM_HWDLINKS_LIST_MODIFIED') . '</b>: ' . $date . '</small>';
+            $date = HTMLHelper::date($item->modified, 'Y-m-d', false);
+            $date = ' - <small><b>' . Text::_('COM_HWDLINKS_LIST_MODIFIED') . '</b>: ' . $date . '</small>';
         }
 
         // Constructing item row
         if ($item->parent === true) { // Adding elements to accordeon menu
-            echo '<input class="cd-accordion__input" type="checkbox" name ="group-'. $item->id . '" id="group-'. $item->id . '">';
+            echo '<input class="cd-accordion__input" type="checkbox" name ="group-' . $item->id . '" id="group-' . $item->id . '">';
             echo '<div class="link-row link-row-lv-' . $item->level . '">';
             // Adding image if is set
             if ($item->image != null) :
                 echo '<div class="item-image"><img src="' . $item->image . '"></div>';
             endif;
-            echo '<label class="cd-accordion__label cd-accordion__label--icon-folder item-link-lv-' . $item->level . '" for="group-'. $item->id . '">
+            echo '<label class="cd-accordion__label cd-accordion__label--icon-folder item-link-lv-' . $item->level . '" for="group-' . $item->id . '">
                 <i class="fa fa-plus"></i>
                 </label>';
         } else {

@@ -44,7 +44,7 @@ return new class () implements InstallerScriptInterface
             throw new \RuntimeException('This component requires Joomla 4.0 or later.');
         }
 
-        echo '<p>' . JText::_('COM_HWDLINKS_PREFLIGHT_' . $type . '_TEXT') . '</p>';
+        echo '<p>' . Text::_('COM_HWDLINKS_PREFLIGHT_' . $type . '_TEXT') . '</p>';
 
         return true;
     }
@@ -188,11 +188,7 @@ return new class () implements InstallerScriptInterface
         $total = $db->loadResult();
 
         // insert root record
-        //$columns = array('id','title','alias','parent_id','rgt');
-        //$columns = ['id', 'title', 'published', 'parent_id', 'rgt', 'alias', 'link', 'document', 'menu', 'article', 'path', 'image', 'params'];
         $columns = ['id', 'title', 'published', 'parent_id', 'rgt', 'alias'];
-        //$values = array(1, 'hwdlinks root','hwdlinks-root-alias',0, 2 * (int)$total + 1);
-        //$values = [1, 'links root', 1, 0, 2 * (int)$total + 1, '', '', '', 0, 0, '', ''];
         $values = [1, 'links root', 1, 0, 2 * (int)$total + 1, ''];
 
         $query = $db->getQuery(true)

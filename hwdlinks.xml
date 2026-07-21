@@ -43,6 +43,7 @@
 		to copy FROM in the package to install therefore files copied
 		in this section are copied from /site/ in the package -->
 	<files folder="site">
+		<folder>language</folder>
 		<folder>src</folder>
 		<folder>tmpl</folder>
 	</files>
@@ -59,13 +60,13 @@
 
 	<administration>
 		<files folder="admin">
+			<folder>forms</folder>
 			<folder>language</folder>
 			<folder>services</folder>
 			<folder>sql</folder>
 			<folder>src</folder>
 			<folder>tmpl</folder>
 			<file>access.xml</file>
-			<file>script.php</file>
 		</files>
 		<!-- Use this to root/administrator/language files -->
 		<languages folder="admin/language">

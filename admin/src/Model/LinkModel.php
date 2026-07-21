@@ -60,8 +60,8 @@ class LinkModel extends AdminModel
     {
         // Get the form.
         $form = $this->loadForm(
-            'com_hwdlinks.hwdlink',
-            'hwdlink',
+            'com_hwdlinks.link',
+            'link',
             [
                 'control' => 'jform',
                 'load_data' => $loadData
