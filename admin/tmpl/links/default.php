@@ -81,7 +81,7 @@ if ($saveOrder) {
         </thead>
         <tfoot>
             <tr>
-                <td colspan="7">
+                <td colspan="9">
                     <?php echo $this->pagination->getListFooter(); ?>
                 </td>
             </tr>

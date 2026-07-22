@@ -143,25 +143,6 @@ return new class () implements InstallerScriptInterface
                 var_dump($result);
             }
 
-            // update id in the associations table
-            /*$query = $db->getQuery(true)
-                ->update('#__associations')
-                ->set("id = $newid")
-                ->where("id = $id")
-                ->where('context = "com_helloworld.item"');
-            $db->setQuery($query);
-            $result = $db->execute();
-            if ($result)
-            {
-                $nrows = $db->getAffectedRows();
-                echo "<p>Id in associations table changed, records updated: $nrows</p>";
-            }
-            else
-            {
-                echo "<p>Error: Id in associations table not changed</p>";
-                var_dump($result);
-            }*/
-
             // update id in the assets table
             $query = $db->getQuery(true)
                 ->update('#__assets')

@@ -111,7 +111,6 @@ class LinkModel extends AdminModel
      */
     public function save($data)
     {
-
         $result = parent::save($data);
 
         if ($result) {

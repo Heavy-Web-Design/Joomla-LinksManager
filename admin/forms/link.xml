@@ -59,6 +59,7 @@
 			type="menuitem"
 			label="COM_HWDLINKS_LINK_MENU_LABEL"
 			description="COM_HWDLINKS_LINK_MENU_DESC"
+			default="0"
 			showon="type:menu">
 			<option value="">COM_HWDLINKS_LINK_MENU_DEFAULT</option>
 		</field>
@@ -68,8 +69,9 @@
             label="Select an article"
             query="SELECT id, title FROM #__content"
             key_field="id"
-                value_field="title"
-                showon="type:article"
+            value_field="title"
+			default="0"
+            showon="type:article"
             >
 			<option value="">COM_HWDLINKS_LINK_ARTICLE_DEFAULT</option>
 		</field>
