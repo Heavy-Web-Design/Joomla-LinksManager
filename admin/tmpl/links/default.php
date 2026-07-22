@@ -49,7 +49,7 @@ if ($saveOrder) {
             ?>
         </div>
     </div>
-    <table class="table table-striped table-hover" id="hwdlinksList">
+    <table class="table table-striped table-hover table-sm" id="hwdlinksList">
         <thead>
         <tr>
             <th width="4%">
