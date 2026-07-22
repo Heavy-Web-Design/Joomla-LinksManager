@@ -2,9 +2,9 @@
 
 \defined('_JEXEC') or die;
 
+use HWD\Component\HwdLinks\Administrator\Extension\HwdLinksComponent;
 use Joomla\CMS\Dispatcher\ComponentDispatcherFactoryInterface;
 use Joomla\CMS\Extension\ComponentInterface;
-use Joomla\CMS\Extension\Component;
 use Joomla\CMS\Extension\Service\Provider\ComponentDispatcherFactory as ComponentDispatcherFactoryServiceProvider;
 use Joomla\CMS\Extension\Service\Provider\MVCFactory as MVCFactoryServiceProvider;
 use Joomla\CMS\MVC\Factory\MVCFactoryInterface;
@@ -21,7 +21,8 @@ return new class implements ServiceProviderInterface
         $container->set(
             ComponentInterface::class,
             function (Container $container) {
-                $component = new Component($container->get(ComponentDispatcherFactoryInterface::class));
+                $component = new HwdLinksComponent($container->get(ComponentDispatcherFactoryInterface::class));
+                $component->setMVCFactory($container->get(MVCFactoryInterface::class));
 
                 return $component;
             }
