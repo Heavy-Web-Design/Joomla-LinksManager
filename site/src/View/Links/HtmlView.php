@@ -11,6 +11,7 @@ namespace HWD\Component\HwdLinks\Site\View\Links;
 
 \defined('_JEXEC') or die;
 
+use Joomla\CMS\Factory;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 
 
@@ -67,6 +68,14 @@ class HtmlView extends BaseHtmlView
         }
 
         $this->items = $items;
+
+
+        // Get the Web Asset Manager instance
+        $doc = Factory::getApplication()->getDocument();
+        $wa = $doc->getWebAssetManager();
+
+        // Command Joomla to use your declared style asset
+        $wa->useStyle('com_hwdlinks.frontend-css');
 
         // Display the view
         parent::display($tpl);

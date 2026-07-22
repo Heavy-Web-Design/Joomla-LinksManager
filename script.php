@@ -44,7 +44,7 @@ return new class () implements InstallerScriptInterface
             throw new \RuntimeException('This component requires Joomla 4.0 or later.');
         }
 
-        echo '<p>' . Text::_('COM_HWDLINKS_PREFLIGHT_' . $type . '_TEXT') . '</p>';
+        //echo '<p>' . Text::_('COM_HWDLINKS_PREFLIGHT_' . $type . '_TEXT') . '</p>';
 
         return true;
     }
@@ -73,7 +73,7 @@ return new class () implements InstallerScriptInterface
      */
     public function update(InstallerAdapter $parent): bool
     {
-        echo '<p>' . Text::sprintf('COM_HWDLINKS_UPDATE_TEXT', $parent->getManifest()->version) . '</p>';
+        //echo '<p>' . Text::sprintf('COM_HWDLINKS_UPDATE_TEXT', $parent->getManifest()->version) . '</p>';
         return true;
     }
 
@@ -224,7 +224,7 @@ return new class () implements InstallerScriptInterface
      */
     public function uninstall(InstallerAdapter $parent): bool
     {
-        echo '<p>' . Text::_('COM_HWDLINKS_UNINSTALL_TEXT') . '</p>';
+        //echo '<p>' . Text::_('COM_HWDLINKS_UNINSTALL_TEXT') . '</p>';
         return true;
     }
 };

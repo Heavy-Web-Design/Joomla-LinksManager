@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "com_hwdlinks.frontend-styles",
+  "version": "1.0.0",
+  "description": "Frontend styles for My Component",
+  "assets": [
+    {
+      "name": "com_hwdlinks.frontend-css",
+      "type": "style",
+      "uri": "com_hwdlinks/frontend.css"
+    }
+  ]
+}
