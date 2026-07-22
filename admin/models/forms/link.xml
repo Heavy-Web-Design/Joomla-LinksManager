@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields>
+		<field
+				name="id"
+				type="hidden"
+				/>
+		<field
+				name="title"
+				type="text"
+				label="COM_HWDLINKS_LINK_TITLE_LABEL"
+				description="COM_HWDLINKS_LINK_TITLE_DESC"
+				size="40"
+				class="input-xxlarge input-large-text"
+				required="true"
+				filter="raw"
+				/>
+	</fields>
+	<fieldset
+		name="content"
+		label="COM_HWDLINKS_LINK_DETAILS"
+	>
+		<field
+			name="type"
+			type="radio"
+			label="COM_HWDLINKS_LINK_TYPE_LABEL"
+			description="COM_HWDLINKS_LINK_TYPE_DESC"
+			required="true"
+			class="btn-group"
+			>
+			<option value="link">COM_HWDLINKS_LINK_TYPE_LINK</option>
+			<option value="document">COM_HWDLINKS_LINK_TYPE_DOCUMENT</option>
+			<option value="menu">COM_HWDLINKS_LINK_TYPE_MENU</option>
+			<option value="article">COM_HWDLINKS_LINK_TYPE_ARTICLE</option>
+			<option value="empty">COM_HWDLINKS_LINK_TYPE_EMPTY</option>
+		</field>
+		<field
+			name="link"
+			type="url"
+			label="COM_HWDLINKS_LINK_LINK_LABEL"
+			description="COM_HWDLINKS_LINK_LINK_DESC"
+			size="255"
+			class="input-xxlarge"
+			hint="http:// https://"
+			showon="type:link"
+			/>
+		<field
+			name="document"
+			type="media"
+			label="COM_HWDLINKS_LINK_DOC_LABEL"
+			description="COM_HWDLINKS_LINK_DOC_DESC"
+			class="input-xxlarge"
+			preview="false"
+			showon="type:document"
+			mediatype="files"
+			/>
+		<field
+			name="menu"
+			type="menuitem"
+			label="COM_HWDLINKS_LINK_MENU_LABEL"
+			description="COM_HWDLINKS_LINK_MENU_DESC"
+			showon="type:menu">
+			<option value="">COM_HWDLINKS_LINK_MENU_DEFAULT</option>
+		</field>
+		<field
+    	name="article"
+    	type="sql"
+    	label="Select an article"
+    	query="SELECT id, title FROM #__content"
+    	key_field="id"
+			value_field="title"
+			showon="type:article"
+    	>
+			<option value="">COM_HWDLINKS_LINK_ARTICLE_DEFAULT</option>
+		</field>
+		<field
+			name="browserNav"
+			type="list"
+			label="COM_HWDLINKS_LINK_TARGETWINDOW_LABEL"
+			description="COM_HWDLINKS_LINK_TARGETWINDOW_DESC"
+			showon="type:link,document,menu,article"
+			default="1"
+			>
+			<option value="0">COM_HWDLINKS_LINK_TARGETWINDOW_PARENT</option>
+			<option value="1">COM_HWDLINKS_LINK_TARGETWINDOW_NEW</option>
+		</field>
+	</fieldset>
+
+	<fieldset
+			name="image"
+			label="COM_HWDLINKS_IMAGE_FIELDS"
+		>
+			<field
+				name="image"
+				type="media"
+				preview="tooltip"
+				label="COM_HWDLINKS_LINK_IMAGE_LABEL"
+				description="COM_HWDLINKS_LINK_IMAGE_DESC" />
+			<!--<field name="alt"
+				type="text"
+				label="COM_CONTENT_FIELD_IMAGE_ALT_LABEL"
+				description="COM_CONTENT_FIELD_IMAGE_ALT_DESC"
+				size="30"/>-->
+	</fieldset>
+
+	<fieldset
+		name="publish"
+		>
+		<field
+			name="published"
+			type="list"
+			label="JSTATUS"
+			description="JFIELD_PUBLISHED_DESC"
+			class="chzn-color-state"
+			filter="intval"
+			size="1"
+			default="1"
+			>
+			<option value="1">JPUBLISHED</option>
+			<option value="0">JUNPUBLISHED</option>
+		</field>
+		<field
+			name="parent_id"
+			type="linkparent"
+			label="COM_HWDLINKS_LINK_FIELD_PARENT_LABEL"
+			description="COM_HWDLINKS_LINK_FIELD_PARENT_DESC"
+			default="1"
+			filter="int">
+		</field>
+		<!--<field
+			name="created"
+			type="calendar"
+			label="JGLOBAL_FIELD_CREATED_LABEL"
+			description="COM_HWDLINKS_LINK_CREATED_DESC"
+			translateformat="true"
+			showtime="true"
+			size="22"
+			filter="user_utc"
+		/>-->
+		<field
+			name="modified"
+			type="calendar"
+			label="JGLOBAL_FIELD_MODIFIED_LABEL"
+			description="COM_HWDLINKS_LINK_MODIFIED_DESC"
+			translateformat="true"
+			showtime="true"
+			size="22"
+			filter="user_utc"
+		/>
+		<field
+			name="linkordering"
+			type="linkordering"
+			label="JFIELD_ORDERING_LABEL"
+			description="JFIELD_ORDERING_DESC"
+			filter="int"
+			size="1">
+		</field>
+	</fieldset>
+
+</form>
