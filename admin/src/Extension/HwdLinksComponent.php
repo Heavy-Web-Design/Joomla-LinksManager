@@ -1,4 +1,5 @@
 <?php // phpcs:ignore PSR1.Files.SideEffects.FoundWithSymbols
+
 namespace HWD\Component\HwdLinks\Administrator\Extension;
 
 defined('_JEXEC') or die;
