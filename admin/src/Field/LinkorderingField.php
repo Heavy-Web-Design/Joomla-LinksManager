@@ -19,6 +19,14 @@ class LinkorderingField extends ListField
     protected $type = 'Linkordering';
 
     /**
+     * Use Joomla's core "fancy select" layout so the list renders as a
+     * searchable (Choices.js powered) dropdown instead of a plain <select>.
+     *
+     * @var    string
+     */
+    protected $layout = 'joomla.form.field.list-fancy-select';
+
+    /**
      * Method to return the options for ordering the hwdlinks record
      * This is the list of siblings the record's siblings - ie those records with the same parent.
      * The method requires that parent id be set.
