@@ -27,6 +27,41 @@ class LinkparentField extends ListField
     protected $layout = 'joomla.form.field.list-fancy-select';
 
     /**
+     * Prepend the component's own layouts directory so our override of
+     * joomla.form.field.list-fancy-select (which adds remote-search
+     * support) is found before the core one.
+     *
+     * @return  array
+     */
+    protected function getLayoutPaths()
+    {
+        $paths = parent::getLayoutPaths();
+
+        array_unshift($paths, JPATH_COMPONENT_ADMINISTRATOR . '/layouts');
+
+        return $paths;
+    }
+
+    /**
+     * Add the data needed to enable remote (server-side) search, so the
+     * Choices.js dropdown isn't limited by Fuse.js's client-side ~32
+     * character search pattern cap.
+     *
+     * @return  array
+     */
+    protected function getLayoutData()
+    {
+        $data = parent::getLayoutData();
+
+        $id = (int) $this->form->getValue('id', 0);
+
+        $data['remoteSearch'] = true;
+        $data['remoteUrl']    = 'index.php?option=com_hwdlinks&task=link.parentSearch&format=json&id=' . $id;
+
+        return $data;
+    }
+
+    /**
      * Method to return the options for ordering the hwdlinks record
      * This is the list of siblings the record's siblings - ie those records with the same parent.
      * The method requires that parent id be set.

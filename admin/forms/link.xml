@@ -129,6 +129,8 @@
 			default="1"
 			filter="int"
 			addfieldprefix="HWD\Component\HwdLinks\Administrator\Field"
+			data-max-results="500"
+			data-strict-search="1"
 		>
 		</field>
 		<!--<field
@@ -159,6 +161,8 @@
 			filter="int"
 			size="1"
 			addfieldprefix="HWD\Component\HwdLinks\Administrator\Field"
+			data-max-results="500"
+			data-strict-search="1"
 		>
 		</field>
 	</fieldset>
