@@ -111,6 +111,10 @@ class LinkModel extends AdminModel
      */
     public function save($data)
     {
+        // The hide_modified checkbox is absent from the submitted data when unchecked,
+        // so it must be normalised here or unchecking it would never persist.
+        $data['hide_modified'] = !empty($data['hide_modified']) ? 1 : 0;
+
         $result = parent::save($data);
 
         if ($result) {

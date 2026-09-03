@@ -89,8 +89,6 @@
 		<field
 			name="hide_modified"
 			type="checkbox"
-			preview="tooltip"
-			default="0"
 			filter="intval"
 			label="COM_HWDLINKS_LINK_HIDE_MODIFIED_LABEL"
 			description="COM_HWDLINKS_LINK_HIDE_MODIFIED_DESC" />
