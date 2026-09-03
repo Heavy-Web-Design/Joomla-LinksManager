@@ -76,7 +76,7 @@ use Joomla\CMS\Uri\Uri;
             $date = '';
 
             // Setting date
-            if ($item->modified !== '0000-00-00 00:00:00' && $item->modified !== null) {
+            if (empty($item->hide_modified) && $item->modified !== '0000-00-00 00:00:00' && $item->modified !== null) {
                 $date = HTMLHelper::date($item->modified, 'Y-m-d', false);
                 $date = ' - <small><b>' . Text::_('COM_HWDLINKS_LIST_MODIFIED') . '</b>: ' . $date . '</small>';
             }

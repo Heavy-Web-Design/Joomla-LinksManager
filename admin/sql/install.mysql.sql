@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS `#__hwdlinks_link` (
   `modified_by` INT(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Modified by user id',
   `modified` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'The time the link was modified.',
   `browserNav` TINYINT(4) NOT NULL DEFAULT '0' COMMENT 'The click behaviour of the link.',
+  `hide_modified` TINYINT(4) NOT NULL DEFAULT '0' COMMENT 'Whether to hide the modified date on the frontend.',
   `access` INT(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'The access level required to view the menu item.',
   `image` VARCHAR(1024) NULL COMMENT 'The image of the menu item.',
   `alt` VARCHAR(255) NOT NULL DEFAULT '0' COMMENT 'The alt text of image when image is not available',
